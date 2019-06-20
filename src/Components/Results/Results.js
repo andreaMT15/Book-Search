@@ -17,7 +17,9 @@ const Results = props => {
           <li>Publishing Company: {bookList.publisher}</li>
           <li>Description: {bookList.description}</li>
         </ul>
-        <Button variant="primary">Learn More</Button>
+        <a href="#">
+          <Button variant="primary">Learn More</Button>
+        </a>
       </div>
     </div>
   ));
