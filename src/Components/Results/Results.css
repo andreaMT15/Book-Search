@@ -1,0 +1,7 @@
+.list-wrapper {
+  display: inline-flex;
+}
+
+ul {
+  list-style: none;
+}

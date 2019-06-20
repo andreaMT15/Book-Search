@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class BookSearch extends Component {
+class SearchBar extends React.Component {
   render() {
     return (
-      <div className="book-search">
-        <form className="form-inline sb-search-form" onSubmit={this.props.handleSubmit}>
+      <div>
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="searchTerm"
             className="sb-search-input"
             placeholder="Search Title"
-            onChange={this.props.handleChange}
+            onChange={this.handleChange}
           />
 
           <button type="submit" className="sb-search-button">
@@ -22,4 +22,4 @@ class BookSearch extends Component {
   }
 }
 
-export default BookSearch;
+export default SearchBar;
