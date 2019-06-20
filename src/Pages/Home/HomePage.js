@@ -22,7 +22,7 @@ class HomePage extends Component {
     const searchTerm = this.state.searchTerm;
 
     axios
-      .get('https://www.googleapis.com/books/v1/volumes?q=' + searchTerm + '&key=' + apiKey + '&maxResults=3')
+      .get('https://www.googleapis.com/books/v1/volumes?q=' + searchTerm + '&key=' + apiKey + '&maxResults=10')
       .then(res => {
         const response = res.data.items;
         const books = response.map(book => book.volumeInfo);
@@ -36,6 +36,7 @@ class HomePage extends Component {
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
+
   render() {
     return (
       <div>
