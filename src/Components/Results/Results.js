@@ -14,19 +14,33 @@ const Results = props => {
   }));
 
   const bookDisplay = bookInfo.map((book, index) => (
-    <div className="list-wrapper" key={index}>
+    <div id="results" className="list-wrapper" key={index}>
       <div className="book-image">
         <img src={book.image} alt="book-cover" />
       </div>
       <div className="book-info">
         <ul>
-          <li>Book Title: {book.title}</li>
-          <li>Author: {book.author}</li>
-          <li>Publishing Company: {book.publisher}</li>
-          <li>Description: {book.description}</li>
+          <li>
+            <div className="heading"> Book Title:</div>
+            <div>{book.title}</div>
+          </li>
+          <li>
+            <div className="heading">Author:</div>
+            <div>{book.author}</div>
+          </li>
+          <li>
+            <div className="heading">Publishing Company:</div>
+            <div>{book.publisher}</div>
+          </li>
+          <li>
+            <div className="heading">Description:</div>
+            <div>{book.description}</div>
+          </li>
         </ul>
         <a href={book.infoLink}>
-          <Button variant="primary">Learn More</Button>
+          <Button id="more-button" variant="primary">
+            Learn More
+          </Button>
         </a>
       </div>
     </div>

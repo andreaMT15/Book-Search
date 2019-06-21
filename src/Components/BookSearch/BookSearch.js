@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Link, animateScroll as scroll } from 'react-scroll';
+import Button from 'react-bootstrap/Button';
 import './BookSearch.css';
 
 class BookSearch extends Component {
   render() {
     return (
-      <div className="book-search">
+      <div id="book-search" className="book-search">
         <div className="form-wrapper">
           <form className="sb-search-form" onSubmit={this.props.handleSubmit}>
             <input
@@ -15,9 +17,9 @@ class BookSearch extends Component {
               onChange={this.props.handleChange}
             />
 
-            <button id="submit-btn" type="submit">
+            <Button id="submit-btn" type="submit">
               Search
-            </button>
+            </Button>
           </form>
         </div>
       </div>

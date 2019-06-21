@@ -1,7 +1,29 @@
 .list-wrapper {
   display: inline-flex;
+  margin: 10px;
+}
+
+.book-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 ul {
   list-style: none;
+}
+
+li {
+  margin: 5px 5px 5px 0;
+}
+
+.heading {
+  font-weight: bold;
+}
+
+#more-button {
+  margin-left: 40px;
+  background-color: #4b0082;
+  color: white;
+  font-weight: bold;
 }
