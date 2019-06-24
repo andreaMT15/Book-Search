@@ -3,7 +3,7 @@
 exports[`<BookSearch/> 1`] = `
 <div>
   <div
-    class="book-search"
+    class="search-wrapper"
     data-testid="book-search"
   >
     <div
@@ -21,6 +21,7 @@ exports[`<BookSearch/> 1`] = `
             name="searchTerm"
             placeholder="Search a book title"
             type="text"
+            value=""
           />
         </label>
         <button
@@ -31,6 +32,9 @@ exports[`<BookSearch/> 1`] = `
         >
           Search
         </button>
+        <div
+          class="error"
+        />
       </form>
     </div>
   </div>

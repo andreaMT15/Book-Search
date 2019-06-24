@@ -7,7 +7,7 @@ class BookSearch extends Component {
     const { handleSubmit } = this.props;
     const { handleChange } = this.props;
     return (
-      <div data-testid="book-search" className="book-search">
+      <div data-testid="book-search" className="search-wrapper">
         <div className="form-wrapper">
           <form className="sb-search-form" onSubmit={handleSubmit}>
             <label htmlFor="text">
@@ -17,6 +17,7 @@ class BookSearch extends Component {
                 name="searchTerm"
                 className="search-input"
                 placeholder="Search a book title"
+                value={this.props.searchTerm}
                 onChange={handleChange}
               />
             </label>
@@ -24,6 +25,7 @@ class BookSearch extends Component {
             <Button data-testid="submit-btn" id="submit-btn" type="submit">
               Search
             </Button>
+            <div className="error">{this.props.searchError}</div>
           </form>
         </div>
       </div>

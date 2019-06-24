@@ -4,15 +4,18 @@ import axios from 'axios';
 import './HomePage.css';
 import Results from '../../Components/Results/Results';
 
+const initialState = {
+  apiKey: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
+  searchTerm: '',
+  searchError: '',
+  status: 'searching',
+  results: []
+};
+
 class HomePage extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      apiKey: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
-      searchTerm: '',
-      status: 'searching',
-      results: []
-    };
+    this.state = initialState;
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,6 +29,11 @@ class HomePage extends Component {
     event.preventDefault();
     const apiKey = this.state.apiKey;
     const searchTerm = this.state.searchTerm;
+    const isValid = this.validate();
+
+    if (isValid) {
+      this.setState(initialState);
+    }
 
     axios
       .get('https://www.googleapis.com/books/v1/volumes?q=' + searchTerm + '&key=' + apiKey + '&maxResults=10')
@@ -40,13 +48,33 @@ class HomePage extends Component {
       });
   }
 
+  validate() {
+    let searchError = '';
+    if (!this.state.searchTerm) {
+      searchError = 'Please search for a book title ';
+    }
+    if (searchError) {
+      this.setState({ searchError });
+      return false;
+    }
+    return true;
+  }
+
   render() {
-    return (
-      <div>
-        <BookSearch handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-        <Results results={this.state.results} />
-      </div>
-    );
+    if (this.state.status === 'error') {
+      return <h1>Oops Something Went Wrong</h1>;
+    } else if (this.state.status === 'searching') {
+      return (
+        <div>
+          <BookSearch
+            searchError={this.state.searchError}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+          <Results results={this.state.results} />
+        </div>
+      );
+    }
   }
 }
 
