@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BookSearch/> 1`] = `
+<div>
+  <div
+    class="book-search"
+    data-testid="book-search"
+  >
+    <div
+      class="form-wrapper"
+    >
+      <form
+        class="sb-search-form"
+      >
+        <label
+          for="text"
+        >
+          <input
+            class="search-input"
+            data-testid="search-input"
+            name="searchTerm"
+            placeholder="Search a book title"
+            type="text"
+          />
+        </label>
+        <button
+          class="btn btn-primary"
+          data-testid="submit-btn"
+          id="submit-btn"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

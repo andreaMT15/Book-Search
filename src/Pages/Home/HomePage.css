@@ -1,0 +1,27 @@
+.book-search {
+  background-image: url('../../assets/books-1617327_1920.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-input {
+  padding: 3px;
+  line-height: 2;
+  min-width: 600px;
+}
+
+#submit-btn {
+  background-color: #4b0082;
+  color: white;
+  font-weight: bold;
+  height: 42px;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import BookSearch from '../../Components/BookSearch/BookSearch';
+import axios from 'axios';
+import './HomePage.css';
 import Results from '../../Components/Results/Results';
 
 class HomePage extends Component {
@@ -9,11 +10,16 @@ class HomePage extends Component {
     this.state = {
       apiKey: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
       searchTerm: '',
+      status: 'searching',
       results: []
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   handleSubmit(event) {
@@ -26,21 +32,18 @@ class HomePage extends Component {
       .then(res => {
         const response = res.data.items;
         const books = response.map(book => book.volumeInfo);
-        this.setState({ results: books });
+        this.setState({ status: 'done', results: books });
       })
       .catch(error => {
         console.log('Error Response', error);
+        this.setState({ satus: 'error' });
       });
-  }
-
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
     return (
       <div>
-        <BookSearch handleChange={this.handleChange} handleSubmit={this.handleSubmit} title={this.state.bookTitle} />
+        <BookSearch handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         <Results results={this.state.results} />
       </div>
     );
