@@ -1,10 +1,10 @@
-#Google Books Challenge
+# Google Books Challenge
 
-##Developer: Andrea Minhas
+## Developer: Andrea Minhas
 
 This app is designed to use the Google Books API to obtain information for a particular book title that is searched by the user. Once the user has searched for a book title, the app will then display a list of results which will include the book title, author, publishing company, a short description and a link to learn more about the book.
 
-##Setup
+## Setup
 
 If you would like to run the code on your local machine, you will need a few things to get started.
 
@@ -23,7 +23,7 @@ If you would like to run the code on your local machine, you will need a few thi
 - Paste the following line into the env and insert your API Key.
   REACT_APP_GOOGLE_BOOKS_API_KEY= YOUR API KEY HERE
 
-** Technlogies Used: **
+**Technlogies Used:**
 
 - React
 - Google Books API https://developers.google.com/books/docs/v1/reference/volumes/list
