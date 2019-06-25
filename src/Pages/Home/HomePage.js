@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import BookSearch from '../../Components/BookSearch/BookSearch';
 import axios from 'axios';
-import './HomePage.css';
 import Results from '../../Components/Results/Results';
+import './HomePage.css';
 
 const initialState = {
   apiKey: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
@@ -61,20 +61,18 @@ class HomePage extends Component {
   }
 
   render() {
-    if (this.state.status === 'error') {
-      return <h1>Oops Something Went Wrong</h1>;
-    } else if (this.state.status === 'searching') {
-      return (
-        <div>
-          <BookSearch
-            searchError={this.state.searchError}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
-          <Results results={this.state.results} />
-        </div>
-      );
-    }
+    return this.state.status === 'error' ? (
+      <h1> Oops! Something went wrong! </h1>
+    ) : (
+      <div>
+        <BookSearch
+          searchError={this.state.searchError}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+        <Results results={this.state.results} />
+      </div>
+    );
   }
 }
 
