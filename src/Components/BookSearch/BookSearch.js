@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import { goToAnchor } from 'react-scrollable-anchor';
 import './BookSearch.css';
 
 class BookSearch extends Component {
   render() {
     const { handleSubmit } = this.props;
     const { handleChange } = this.props;
+
     return (
-      <div data-testid="book-search" className="search-wrapper">
+      <div data-testid="book-search" className="book-search">
         <div className="form-wrapper">
           <form className="sb-search-form" onSubmit={handleSubmit}>
             <label htmlFor="text">
@@ -17,15 +19,13 @@ class BookSearch extends Component {
                 name="searchTerm"
                 className="search-input"
                 placeholder="Search a book title"
-                value={this.props.searchTerm}
                 onChange={handleChange}
               />
             </label>
 
-            <Button data-testid="submit-btn" id="submit-btn" type="submit">
+            <Button onClick={() => goToAnchor('result-list')} data-testid="submit-btn" id="submit-btn" type="submit">
               Search
             </Button>
-            <div className="error">{this.props.searchError}</div>
           </form>
         </div>
       </div>
