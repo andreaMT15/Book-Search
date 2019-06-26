@@ -1,18 +1,17 @@
 import React from 'react';
-import { render, cleanup, fireEvent } from '@testing-library/react';
-import HomePage from './HomePage';
+import { render, cleanup, fireEvent, waitForElement } from '@testing-library/react';
+import 'jest-dom/extend-expect';
+import axiosMock from 'axios';
+import BookSearch from '../../Components/BookSearch/BookSearch';
 
 afterEach(cleanup);
 
 test('<HomePage/>', () => {
-  // const onSubmit = jest.fn();
-  const { debug, getByTestId } = render(<HomePage />);
+  const onSubmit = jest.fn();
+  const url = '/books';
+  axiosMock.get(url).then(response => response.data);
+  const { getByTestId } = render(<BookSearch onSubmit={onSubmit} />);
+  fireEvent.submit(getByTestId('submit-btn'));
   expect(getByTestId('book-search')).toBeTruthy();
-  // fireEvent.change(getByTestId('search-input'), {
-  //   target: { value: 'Jemima J' }
-  // });
-  // expect(onSubmit).toHaveBeenCalledWith({
-  //   searchTerm: 'Jemima J'
-  // });
-  debug();
+  expect(axiosMock.get).toHaveBeenCalledTimes(1);
 });

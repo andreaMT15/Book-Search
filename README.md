@@ -1,6 +1,6 @@
-# Google Books Challenge
+# Book Search
 
-## Developer: Andrea Minhas
+### Developer: Andrea Minhas
 
 This app is designed to use the Google Books API to obtain information for a particular book title that is searched by the user. Once the user has searched for a book title, the app will then display a list of results which will include the book title, author, publishing company, a short description and a link to learn more about the book.
 

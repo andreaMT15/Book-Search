@@ -25,18 +25,13 @@ class HomePage extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  getResults() {
+    const url = 'https://www.googleapis.com/books/v1/volumes?q=';
     const apiKey = this.state.apiKey;
     const searchTerm = this.state.searchTerm;
-    const isValid = this.validate();
-
-    if (isValid) {
-      this.setState(initialState);
-    }
 
     axios
-      .get('https://www.googleapis.com/books/v1/volumes?q=' + searchTerm + '&key=' + apiKey + '&maxResults=10')
+      .get(url + searchTerm + '&key=' + apiKey + '&maxResults=10')
       .then(res => {
         const response = res.data.items;
         const books = response.map(book => book.volumeInfo);
@@ -46,6 +41,17 @@ class HomePage extends Component {
         console.log('Error Response', error);
         this.setState({ satus: 'error' });
       });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.getResults();
+
+    const isValid = this.validate();
+
+    if (isValid) {
+      this.setState(initialState);
+    }
   }
 
   validate() {
