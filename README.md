@@ -8,26 +8,31 @@ This app is designed to use the Google Books API to obtain information for a par
 
 ## Setup
 
-If you would like to run the code on your local machine, you will need a few things to get started.
+Please complete the following steps to run the code locally.
 
-- You wil need to have the latest version of Node installed on your local machine. You can download Node by visiting the Node.js website and following the installiton instructions. https://nodejs.org/en/
+1. Make sure you have the latest version of Node and NPM installed on your local machine. You can download Node at https://nodejs.org/en/. To install NPM run `npm install npm@latest -g` in your terminal.
 
-- Once you have Node installed you will also need to install npm. To install npm. Run the following command in your terminal.
+2. Obtain an API key for Google Books from the Google Developers Console. You can log in and request one here. https://console.developers.google.com
 
-- You will also need to obtain an API key for Google Books from the Google Developers Console. You can log in and request one here. https://console.developers.google.com
+3. Clone the repo to your local machine.
 
-- Once you have all the steps above completed, clone the repo to your local machine, cd into the project and run npm install. This will install all the dependencies the app needs to run locally.
+4. cd into the Google-Books-Challenge folder and run `npm install` in your terminal.
 
-- Then, open the code in your text editor.
+5. Open the Google-Books-Challenge folder in your text editor.
 
-- Once you have the code open in your text editor, create an env file in the root directory.
+6. Once you have the code open in your text editor, create an .env file in the root directory.
 
-- Paste the following line into the env and insert your API Key.
-  REACT_APP_GOOGLE_BOOKS_API_KEY= YOUR API KEY HERE
+7. Paste the following line into the env and insert your API Key.
+   `REACT_APP_GOOGLE_BOOKS_API_KEY=YOUR API KEY HERE`
+
+8. To start the development server enter `npm start` in your terminal and vist http://localhost:3000 in the browser.
 
 **Technlogies Used:**
 
 - React
+- Create-React-App
+- Node 12.4.0
+- NPM 6.9.0
 - Google Books API https://developers.google.com/books/docs/v1/reference/volumes/list
 - axios https://www.npmjs.com/package/axios
 - React-Bootstrap https://react-bootstrap.github.io/getting-started/introduction/
