@@ -4,6 +4,8 @@
 
 This app is designed to use the Google Books API to obtain information for a particular book title that is searched by the user. Once the user has searched for a book title, the app will then display a list of results which will include the book title, author, publishing company, a short description and a link to learn more about the book.
 
+![Book-Demo-4](https://user-images.githubusercontent.com/44379703/60147867-9870e400-9794-11e9-9e34-7baaeb0e8e11.gif)
+
 ## Setup
 
 If you would like to run the code on your local machine, you will need a few things to get started.

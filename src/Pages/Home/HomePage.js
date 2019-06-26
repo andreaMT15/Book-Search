@@ -61,18 +61,20 @@ class HomePage extends Component {
   }
 
   render() {
-    return this.state.status === 'error' ? (
-      <h1> Oops! Something went wrong! </h1>
-    ) : (
-      <div>
-        <BookSearch
-          searchError={this.state.searchError}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
-        <Results results={this.state.results} />
-      </div>
-    );
+    if (this.state.results === 'error') {
+      return <h1>Oops! Something went wrong! </h1>;
+    } else {
+      return (
+        <div>
+          <BookSearch
+            searchError={this.state.searchError}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+          <Results results={this.state.results} />
+        </div>
+      );
+    }
   }
 }
 

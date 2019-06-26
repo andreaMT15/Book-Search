@@ -7,15 +7,16 @@ import defaultImage from '../../assets/Book Cover.png';
 import './Results.css';
 
 const Results = props => {
-  configureAnchors({ offset: -3700 });
   const bookInfo = props.results.map(bookList => ({
     title: bookList.title !== undefined ? bookList.title : 'N/A',
-    author: bookList.authors[0] !== undefined ? bookList.authors[0] : 'N/A',
+    author: bookList.authors !== undefined ? bookList.authors[0] : 'N/A',
     publisher: bookList.publisher !== undefined ? bookList.publisher : 'N/A',
     description: bookList.description !== undefined ? bookList.description : 'N/A',
     image: bookList.imageLinks !== undefined ? bookList.imageLinks.thumbnail : defaultImage,
     infoLink: bookList.infoLink
   }));
+
+  configureAnchors({ offset: -3600 });
 
   const bookDisplay = bookInfo.map((book, index) => (
     <ScrollableAnchor id={'result-list'}>
