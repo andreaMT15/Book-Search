@@ -5,7 +5,6 @@ import Results from '../../Components/Results/Results';
 import './HomePage.css';
 
 const initialState = {
-  apiKey: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
   searchTerm: '',
   searchError: '',
   status: 'searching',
@@ -27,7 +26,7 @@ class HomePage extends Component {
 
   getResults() {
     const url = 'https://www.googleapis.com/books/v1/volumes?q=';
-    const apiKey = this.state.apiKey;
+    const apiKey = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY;
     const searchTerm = this.state.searchTerm;
 
     axios
