@@ -27,7 +27,7 @@ class HomePage extends Component {
   getResults() {
     const url = 'https://www.googleapis.com/books/v1/volumes?q=';
     const apiKey = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY;
-    const searchTerm = this.state.searchTerm;
+    const { searchTerm } = this.state;
 
     axios
       .get(url + searchTerm + '&key=' + apiKey + '&maxResults=10')
@@ -52,8 +52,10 @@ class HomePage extends Component {
   }
 
   validate() {
+    const { searchTerm } = this.state;
     let searchError = '';
-    if (!this.state.searchTerm) {
+
+    if (!searchTerm) {
       searchError = 'Please search for a book title ';
     }
     if (searchError) {
@@ -64,19 +66,19 @@ class HomePage extends Component {
   }
 
   render() {
-    const { status } = this.state;
+    const { status, searchTerm, searchError, results } = this.state;
     if (status === 'error') {
       return <h1>Oops! Something went wrong! </h1>;
     } else {
       return (
         <div>
           <BookSearch
-            value={this.state.searchTerm}
-            searchError={this.state.searchError}
+            value={searchTerm}
+            searchError={searchError}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
           />
-          <Results results={this.state.results} />
+          <Results results={results} />
         </div>
       );
     }
