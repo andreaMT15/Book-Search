@@ -17,12 +17,13 @@ test('<BookSearch/>', () => {
   expect(axiosMock.get).toHaveBeenCalledTimes(1);
 });
 
-test('renders the error message if no search term is entered', () => {
-  const { getByTestId } = render(<BookSearch />);
+test('renders the error message if no search term is entered', async () => {
+  const searchError = 'Please search for a book title';
+  const { getByText, getByTestId } = render(<BookSearch searchError={searchError} />);
   const input = getByTestId('search-input');
-  fireEvent.change(input, { target: { value: null } });
+  fireEvent.change(input, { target: { value: '' } });
   fireEvent.submit(getByTestId('submit-btn'));
-  const errorMessage = getByTestId('input-error');
+  const errorMessage = await waitForElement(() => getByText(/Please search for a book title/));
   expect(errorMessage).not.toBeNull();
 });
 

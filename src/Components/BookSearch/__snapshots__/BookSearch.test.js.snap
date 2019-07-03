@@ -21,6 +21,7 @@ exports[`<BookSearch/> 1`] = `
             name="searchTerm"
             placeholder="Search a book title"
             type="text"
+            value=""
           />
         </label>
         <button
