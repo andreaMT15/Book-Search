@@ -38,18 +38,17 @@ class HomePage extends Component {
       })
       .catch(error => {
         console.log('Error Response', error);
-        this.setState({ satus: 'error' });
+        this.setState({ status: 'error' });
       });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.getResults();
-
     const isValid = this.validate();
 
     if (isValid) {
       this.setState(initialState);
+      this.getResults();
     }
   }
 
@@ -59,15 +58,16 @@ class HomePage extends Component {
       searchError = 'Please search for a book title ';
     }
     if (searchError) {
-      this.setState({ searchError });
+      this.setState({ searchError, status: 'search error' });
       return false;
     }
     return true;
   }
 
   render() {
-    if (this.state.results === 'error') {
-      return <h1>Oops! Something went wrong! </h1>;
+    const { status } = this.state;
+    if (status === 'error') {
+      return <h1 data-testid="error">Oops! Something went wrong! </h1>;
     } else {
       return (
         <div>

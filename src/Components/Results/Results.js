@@ -8,7 +8,8 @@ import defaultImage from '../../assets/Book Cover.png';
 import './Results.css';
 
 const Results = props => {
-  const bookInfo = props.results.map(bookList => ({
+  const { results } = props;
+  const bookInfo = results.map(bookList => ({
     title: bookList.title !== undefined ? bookList.title : 'N/A',
     author: bookList.authors !== undefined ? bookList.authors[0] : 'N/A',
     publisher: bookList.publisher !== undefined ? bookList.publisher : 'N/A',
@@ -57,6 +58,7 @@ const Results = props => {
       </Row>
     </ScrollableAnchor>
   ));
+
   return bookDisplay;
 };
 

@@ -31,6 +31,10 @@ exports[`<BookSearch/> 1`] = `
         >
           Search
         </button>
+        <div
+          class="error"
+          data-testid="input-error"
+        />
       </form>
     </div>
   </div>

@@ -24,8 +24,6 @@ test(' renders results', async () => {
 
   props.map(book => (book.title, book.authors[0], book.publisher, book.description));
   const { getAllByTestId } = render(<Results results={props} />);
-
-  const bookResults = await getAllByTestId('list');
-
+  const bookResults = await waitForElement(() => getAllByTestId('list'));
   expect(bookResults).toBeTruthy();
 });
