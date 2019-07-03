@@ -36,8 +36,7 @@ class HomePage extends Component {
         const books = response.map(book => book.volumeInfo);
         this.setState({ status: 'done', results: books });
       })
-      .catch(error => {
-        console.log('Error Response', error);
+      .catch(() => {
         this.setState({ status: 'error' });
       });
   }
@@ -67,7 +66,7 @@ class HomePage extends Component {
   render() {
     const { status } = this.state;
     if (status === 'error') {
-      return <h1 data-testid="error">Oops! Something went wrong! </h1>;
+      return <h1>Oops! Something went wrong! </h1>;
     } else {
       return (
         <div>

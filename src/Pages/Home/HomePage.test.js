@@ -27,10 +27,10 @@ test('renders the error message if no search term is entered', () => {
 });
 
 test('renders the error message on HomePage', async () => {
-  const { getByTestId } = render(<HomePage />);
+  const { getByText, getByTestId } = render(<HomePage />);
   const input = getByTestId('search-input');
   fireEvent.change(input, { target: { value: 'khdlfksdhl' } });
   fireEvent.submit(getByTestId('submit-btn'));
-  const homePageError = await waitForElement(() => getByTestId('error'));
+  const homePageError = await waitForElement(() => getByText(/Oops! Something went wrong!/));
   expect(homePageError).not.toBeNull();
 });
