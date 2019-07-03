@@ -5,7 +5,7 @@ import './BookSearch.css';
 
 class BookSearch extends Component {
   render() {
-    const { handleSubmit, handleChange, errorMessage } = this.props;
+    const { handleSubmit, handleChange, searchError, value } = this.props;
 
     return (
       <div data-testid="book-search" className="book-search">
@@ -18,6 +18,7 @@ class BookSearch extends Component {
                 name="searchTerm"
                 className="search-input"
                 placeholder="Search a book title"
+                value={value}
                 onChange={handleChange}
               />
             </label>
@@ -26,7 +27,7 @@ class BookSearch extends Component {
               Search
             </Button>
             <div data-testid="input-error" className="error">
-              {errorMessage}
+              {searchError}
             </div>
           </form>
         </div>

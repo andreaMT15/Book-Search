@@ -21,7 +21,7 @@ class HomePage extends Component {
   }
 
   handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ searchTerm: event.target.value });
   }
 
   getResults() {
@@ -71,6 +71,7 @@ class HomePage extends Component {
       return (
         <div>
           <BookSearch
+            value={this.state.searchTerm}
             searchError={this.state.searchError}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
