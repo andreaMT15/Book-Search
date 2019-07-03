@@ -1,6 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent, getByLabelText } from '@testing-library/react';
-import axiosMock from 'axios';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 import BookSearch from './BookSearch';
 
 test('Book Search Form', () => {

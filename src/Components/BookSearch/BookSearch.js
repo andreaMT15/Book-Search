@@ -5,8 +5,7 @@ import './BookSearch.css';
 
 class BookSearch extends Component {
   render() {
-    const { handleSubmit } = this.props;
-    const { handleChange } = this.props;
+    const { handleSubmit, handleChange, errorMessage } = this.props;
 
     return (
       <div data-testid="book-search" className="book-search">
@@ -26,6 +25,9 @@ class BookSearch extends Component {
             <Button onClick={() => goToAnchor('result-list')} data-testid="submit-btn" id="submit-btn" type="submit">
               Search
             </Button>
+            <div data-testid="input-error" className="error">
+              {errorMessage}
+            </div>
           </form>
         </div>
       </div>
